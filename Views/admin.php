@@ -10,6 +10,7 @@
 <body>
     
     <?php include("template/navbar.php"); ?>
+    <?php unset($_SESSION["nom"]); ?>
     <?php print("admin"); ?>
 
 

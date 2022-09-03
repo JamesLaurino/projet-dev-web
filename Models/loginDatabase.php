@@ -52,6 +52,7 @@ class LoginDatabase
         {
             $_SESSION["id"] = $check["id"];
             $_SESSION["nom"] = $check["nom"];
+            unset($_SESSION["admin"]);
             return $check["id"];
             
         }

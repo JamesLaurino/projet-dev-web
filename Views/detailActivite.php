@@ -22,22 +22,72 @@
                         <div class="d-flex"> 
                             <div class="mr-3"> <img class="rounded-circle border mb-2 mt-2 mr-2"  width="150px" height="150px" src="../Views/assets/<?php print($detail["image"]); ?>" alt=""> </div>
                             <div class="ml-2 mt-2"> 
-                                <p>Description: </p>
+                                <p class="text-center" style="text-decoration: underline;" >Description: </p>
                                 <p><?php print($detail["description"]); ?></p> 
+                                <p class="text-center" style="text-decoration: underline;">Nombre de place : </p> 
+                                <p style="font-weight: bolder;" ><?php print($detail["quantite"]); ?></p> 
                             </div>
                         </div>
                         <div class="d-flex ml-5 mt-3">
                             <input type="hidden" name="idActivite" value=<?php print($detail["id"]); ?>>
-                            <div> <button type="submit" class="btn btn-success mr-5" >Submit</button> </div>
+                            <?php if(isset($_SESSION["id"]) && !isset($_SESSION["validationActivite"])): ?>
+                                <div>
+                                    <button  type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#exampleModalCenter">
+                                        Submit
+                                    </button>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if(!isset($_SESSION["id"]) || isset($_SESSION["validationActivite"]) ): ?>
+                                <div>
+                                    <button disabled type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#exampleModalCenter">
+                                        Submit
+                                    </button>
+                                </div>
+                            <?php endif; ?>
+                            
                             <a class="btn btn-danger" href=<?php print(ROOT_PATH . "activite"); ?>>Retour</a>
                         </div>
 
                </div>
             <?php endforeach; ?>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Plus qu'une étape avant de finaliser votre inscription</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                    <p>Je participe au souper : </p>
+                    <div class="d-flex">
 
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radioCheck" id="oui" value="oui">
+                        <label class="form-check-label" for="oui">Oui</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radioCheck" id="non" value="non">
+                        <label class="form-check-label" for="non">Non</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="hidden" name="nomActivite" value=<?php print($detail["nom"]); ?>>
+                    <button type="submit" class="btn btn-success mr-5">Submit</button>
+                </div>
+                </div>
+            </div>
+        </div>
     <form>
-    
 
     <script type="text/javascript">
             // $(document).ready(function() 

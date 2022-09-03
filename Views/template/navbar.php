@@ -25,7 +25,7 @@
             </div>
             <?php endif; ?>
 
-            <?php if(isset($_SESSION["nom"]) && ($_SESSION["admin"]) == true): ?>
+            <?php if(isset($_SESSION["nom"]) && (isset($_SESSION["admin"]))): ?>
                     <div class="col-lg-1 d-flex justify-content-center text-white">
                         <span class="mr-2 mt-2"><?php print($_SESSION['nom']); ?></span>
                         <a href=<?php print(ROOT_PATH . "admin"); ?> class="ml-0 mb-2 text-danger"  style="font-size: larger;"> 

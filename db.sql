@@ -126,7 +126,39 @@ as
 
 	end
 	
--------------------------------------------
+-----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+
+
+create procedure validationActivite @idUser integer, @nomActivite varchar(255)
+as
+	begin
+		declare @activiteId integer;
+		declare @quantite integer;
+		declare @difference integer;
+
+		select @activiteId = id, @quantite = quantite FROM activite WHERE nom = @nomActivite;
+
+		set @difference = @quantite - 1;
+
+		begin transaction
+			UPDATE employe 
+			SET activiteId = @activiteId
+			WHERE id = @idUser;
+		commit transaction
+
+		begin transaction
+			UPDATE activite 
+			set quantite = @difference
+			WHERE nom = @nomActivite;
+		commit transaction
+
+	end	
+
+
+
+------------------------------------------------------------------------------
 
 create trigger hashPasswordAdmin
 on admin

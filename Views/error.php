@@ -15,7 +15,7 @@
 <div class="container d-flex justify-content-center mt-5">
     <div class="d-flex flex-column">
         <div>
-            <img src="Views/assets/icons/error.png" >
+            <img class="rounded" src="Views/assets/icons/error.png" >
         </div>
         <div class="d-flex justify-content-center mt-3">
             <a href=<?php print(ROOT_PATH . "accueil"); ?> class="btn btn-info">Retour</a>
