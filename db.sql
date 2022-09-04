@@ -1,3 +1,6 @@
+create database DevWeb
+use DevWeb
+
 create table activite
 (
 	id integer primary key identity,
@@ -67,12 +70,14 @@ create table employe
 	participeSoupe bit,
 	activiteId integer foreign key REFERENCES activite(id),
 	departementId integer foreign key REFERENCES departement(id),
-	locomotionId integer foreign key REFERENCES locomotion(id)
+	locomotionId integer foreign key REFERENCES locomotion(id),
+	mdp varchar(255)
 
 )
 
 alter table employe
 ADD CONSTRAINT unique_nom_prenom UNIQUE (nom,prenom);
+
 
 --------------------------------------------------------------------USE [DevWeb]
 create trigger checkMail
@@ -211,17 +216,25 @@ as
 ----------------------------------------------------------------------------
 
 
-insert into employe (nom,prenom, mail, codePostal, activiteId, departementId, locomotionId)
+insert into employe (nom,prenom, mail, codePostal, activiteId, departementId, locomotionId, mdp)
 values
-('James', 'Laurino', 'james@hotmail.com',1499,1,1,1),
-('JaimePas', 'TaFigure', 'jamesPasTaFigure@hotmail.com',1800,1,1,1),
-('Jean', 'Profite', 'jeanProfite@hotmail.com',1560,2,2,3),
-('Aude', 'Javel', 'AudeJaval@hotmail.com',1960,3,3,2),
-('Laura', 'Teur', 'LauraTeur@hotmail.com',1360,4,1,2)
+('James', 'Laurino', 'james@hotmail.com',1499,1,1,1,'123')
 
+insert into employe (nom,prenom, mail, codePostal, activiteId, departementId, locomotionId, mdp)
+values
+('JaimePas', 'TaFigure', 'jamesPasTaFigure@hotmail.com',1800,1,1,1, '123')
 
-alter table employe
-add mdp varchar(255)
+insert into employe (nom,prenom, mail, codePostal, activiteId, departementId, locomotionId, mdp)
+values
+('Jean', 'Profite', 'jeanProfite@hotmail.com',1560,2,2,3, '123')
+
+insert into employe (nom,prenom, mail, codePostal, activiteId, departementId, locomotionId, mdp)
+values
+('Aude', 'Javel', 'AudeJaval@hotmail.com',1960,3,3,2, '123')
+
+insert into employe (nom,prenom, mail, codePostal, activiteId, departementId, locomotionId, mdp)
+values
+('Laura', 'Teur', 'LauraTeur@hotmail.com',1360,4,1,2, '123')
 
 ------------------------------------
 -------------------------------------

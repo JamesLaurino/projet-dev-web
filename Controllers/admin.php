@@ -1,3 +1,6 @@
 <?php 
 
-include("Views/admin.php");
+// if(isset($_SESSION["admin"]))
+// {
+    include("Views/admin.php");
+//}
