@@ -262,6 +262,27 @@ as
 			
 	end
 
+------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+create procedure ifoUserForAdminEdit @idUser integer
+as 
+begin
+
+	select employe.id, employe.nom, employe.prenom, employe.mail, employe.codePostal, 
+	activite.nom as 'activite', departement.nom as 'departement', locomotion.nom as 'locomotion',
+	case
+		 WHEN participeSoupe IS NULL THEN 'unknow'
+		 WHEN participeSoupe = 1 THEN 'Oui' 
+		 WHEN participeSoupe = 0 THEN 'Non'
+	end as 'participeSoupe'
+	from employe
+	inner join departement on departement.id = employe.departementId
+	inner join activite on activite.id = employe.activiteId
+	inner join locomotion on locomotion.id = employe.locomotionId
+	where employe.isActive = 1 AND employe.id = @idUser
+end
+
 
 
 ----------------------------------------------------------------------------
