@@ -208,7 +208,59 @@ as
 		commit transaction
 
 	end
+--------------------------------------------------------------------------
+------------------------------------------------------------------------
 
+create procedure infoUserForAdmin
+as
+begin
+
+	select employe.id, employe.nom, employe.prenom, employe.mail, employe.codePostal, 
+	activite.nom, departement.nom, locomotion.nom,
+	case
+		 WHEN participeSoupe IS NULL THEN 'unknow'
+		 WHEN participeSoupe = 1 THEN 'Oui' 
+		 WHEN participeSoupe = 0 THEN 'Non'
+	end as 'Participe soupe'
+	from employe
+	inner join departement on departement.id = employe.departementId
+	inner join activite on activite.id = employe.activiteId
+	inner join locomotion on locomotion.id = employe.locomotionId
+	where employe.isActive = 1;
+end
+
+----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+
+
+create trigger deleteUser
+on employe
+instead of delete
+as
+	begin
+		declare @id integer;
+		declare @idActivite integer;
+		declare @quantiteUpdate integer;
+		declare @quantiteOld integer;
+
+		select @id = id, @idActivite = activiteId from deleted;
+		select @quantiteOld = quantite from activite WHERE id = @idActivite;
+
+		set @quantiteUpdate = @quantiteOld + 1;
+
+		begin transaction
+			update employe 
+			set isActive = 0
+			where id = @id;
+		commit transaction
+
+		begin transaction 
+			update activite
+			set quantite = @quantiteUpdate
+			WHERE id = @idActivite
+		commit transaction
+			
+	end
 
 
 

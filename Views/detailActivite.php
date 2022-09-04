@@ -20,7 +20,7 @@
                     
                <div class="text-center text-info h3"> <?php print($detail["nom"]); ?> </div>
                         <div class="d-flex"> 
-                            <div class="mr-3"> <img class="rounded-circle border mb-2 mt-2 mr-2"  width="150px" height="150px" src="../Views/assets/<?php print($detail["image"]); ?>" alt=""> </div>
+                            <div class="mr-3"> <img class="rounded shadow border mb-2 mt-2 mr-2"  width="200px" height="200px" src="../Views/assets/<?php print($detail["image"]); ?>" alt=""> </div>
                             <div class="ml-2 mt-2"> 
                                 <p class="text-center" style="text-decoration: underline;" >Description: </p>
                                 <p><?php print($detail["description"]); ?></p> 
