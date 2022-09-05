@@ -265,6 +265,66 @@ as
 ------------------------------------------------------------------------------
 -----------------------------------------------------------------------------
 
+create procedure checkPasswordAdmin @nomUser varchar(255), @mdp1 varchar(255)
+as
+	begin
+		
+		select * from admin where
+		mdp = HASHBYTES('SHA2_256', @mdp1) AND  nom = @nomUser;
+
+	end
+
+--------------------------------------------------------------------------------.
+
+
+create procedure updateEmploye @idUser integer, @nomLocomotion varchar(255), 
+@nomDepartement varchar(255), @nomActivite varchar(255), @souper varchar(255)
+as 
+	begin
+		declare @idLocomotion integer;
+		declare @idActivite integer;
+		declare @idDepartement integer;
+		declare @souperBoolean bit;
+		
+		select @idActivite = id from activite where nom = @nomActivite;
+		select @idLocomotion = id from locomotion where nom = @nomLocomotion;
+		select @idDepartement = id from departement where nom = @nomDepartement;
+
+		if(@souper = 'Oui')
+			begin
+				set @souperBoolean = 1;
+			end
+		if(@souper = 'Non')
+			begin
+				set @souperBoolean = 0;
+			end
+		
+		begin transaction 
+			update employe 
+			set activiteId = @idActivite, departementId = @idDepartement, locomotionId = @idLocomotion,
+			participeSoupe = @souperBoolean
+			WHERE id = @idUser
+		commit transaction
+
+	end
+
+---------------------------------------------------------------------------------
+
+create procedure tableauActivite
+as
+	begin
+
+		select activite.nom ,COUNT(*) as 'NombreEmployee'
+		from employe
+		inner join activite on activite.id = employe.activiteId
+		where employe.isActive = 1
+		group by activite.nom;
+
+	end
+
+
+--------------------------------------------------------------------------------
+
 create procedure ifoUserForAdminEdit @idUser integer
 as 
 begin

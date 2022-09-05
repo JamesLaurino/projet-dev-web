@@ -89,28 +89,7 @@
         </div>
     <form>
 
-    <script type="text/javascript">
-            // $(document).ready(function() 
-            // {
 
-
-            //     $("#btnPannier").click(function() 
-            //     {
-            //         let quantite = $("#selectItem").val();
-
-            //         swal({
-            //             title: "Product add to basket!",
-            //             text: "Thank you",
-            //             icon: "success",
-            //             button: "Ok",
-            //         }).then( (value) => 
-            //         {
-            //             window.location.href = "pannier.php?id=" . $_GET["id"] + "&quantite=" + quantite;
-            //         })
-            //     })
-
-            // });
-    </script>
 
 <?php include('Views/template/footer.php'); ?>
 
