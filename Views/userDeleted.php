@@ -16,7 +16,7 @@
 <div class="container d-flex justify-content-center mt-5">
     <div class="d-flex flex-column">
         <div>
-            <img class="rounded" width="250px" height="250px" src="Views/assets/icons/delete.jpg" >
+            <h1 class="h1 text-primary">User deleted with success</h1>
         </div>
         <div class="d-flex justify-content-center mt-3">
             <a href=<?php print(ROOT_PATH . "admin"); ?> class="btn btn-info">Retour</a>
@@ -25,7 +25,18 @@
     
 </div>
 
-    
+<script type="text/javascript">
+    $(document).ready(function() 
+    {
+        swal({
+            title: "User deleted with success!",
+            text: "Nice job",
+            icon: "success",
+            button: "Ok",
+        })
+
+    });
+</script>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

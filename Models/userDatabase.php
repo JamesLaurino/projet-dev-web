@@ -13,10 +13,7 @@ class UserDatabase
         $this->dbb = new PDO($this->database::$databaseLaptop, '', '');
     }
 
-    /* 
-        TODO
-    
-    */
+
     public function editUser($idUser, $locomotion, $departement, $activite, $souper)
     {
         $req = $this->dbb->prepare("EXECUTE updateEmploye :idUser, :locomotion, :departement, :activite, :souper");

@@ -20,6 +20,7 @@ if(REQ_TYPE_ID)
         $user->deleteUser((int)REQ_TYPE_ID);
         include("Views/userDeleted.php");
     }
+    
 }
 else  
 {

@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <form action="updateUser.php" method="post">
+                    <form action=<?php print(ROOT_PATH . "updateUser"); ?> method="post">
                         <?php foreach($donnees as $donnee ): ?>
                         <tr>
                             <td> 
@@ -85,13 +85,13 @@
                             <td>
                                 <p> <?php print($donnee["participeSoupe"]); ?></p>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="oui" value="Oui" checked>
+                                    <input class="form-check-input" type="radio" name="souper" id="oui" value="Oui" checked>
                                     <label class="form-check-label" for="oui">
                                         Oui
                                     </label>
                                     </div>
                                     <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="non" value="Non">
+                                    <input class="form-check-input" type="radio" name="souper" id="non" value="Non">
                                     <label class="form-check-label" for="non">
                                         Non
                                     </label>
@@ -100,7 +100,8 @@
 
                             <td>
                                 <div class="d-flex mt-5">
-                                    <button type="submit" class='btn btn-info mr-2'>Update</button>
+                                    <input type="hidden" name="id" value=<?php print($donnee["id"]); ?>>
+                                    <button type="submit" type="submit" class='btn btn-info mr-2'>Update</button>
                                 </div>
                             </td>
 
