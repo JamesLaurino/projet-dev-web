@@ -62,19 +62,19 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="password">Password (min 3) </label>
+                    <label for="password">Password (min 3 caractères) </label>
                     <input name="mdp" minlength="3" type="password" require class="form-control" id="passwordp" placeholder="password">
                 </div>
 
             </div>
 
             <div class="form-group">
-                <label for="nom">Nom</label>
+                <label for="nom">Nom (pas d'espace blanc et min 3 caractères)</label>
                 <input name="nom" type="text" minlength="3" pattern="[a-zA-Z0-9]+"  required class="form-control" id="nom" placeholder="Aude">
             </div>
 
             <div class="form-group">
-                <label for="prenom">Prenom</label>
+                <label for="prenom">Prenom (idem nom)</label>
                 <input name="prenom" type="text" pattern="[a-zA-Z0-9]+" minlength="3" required class="form-control" id="prenom" placeholder="Javel">
             </div>
 
