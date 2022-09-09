@@ -30,7 +30,7 @@
                         </div>
                         <div class="d-flex ml-5 mt-3">
                             <input type="hidden" name="idActivite" value=<?php print($detail["id"]); ?>>
-                            <?php if(isset($_SESSION["id"]) && !isset($_SESSION["validationActivite"])): ?>
+                            <?php if(isset($_SESSION["id"]) && !isset($_SESSION["validationActivite"]) && $detail["quantite"] >0): ?>
                                 <div>
                                     <button  type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#exampleModalCenter">
                                         Submit
@@ -38,7 +38,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <?php if(!isset($_SESSION["id"]) || isset($_SESSION["validationActivite"]) ): ?>
+                            <?php if(!isset($_SESSION["id"]) || isset($_SESSION["validationActivite"])): ?>
                                 <div>
                                     <button disabled type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#exampleModalCenter">
                                         Submit

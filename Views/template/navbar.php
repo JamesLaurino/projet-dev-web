@@ -3,7 +3,7 @@
         <div class="col-lg-1 d-flex justify-content-center text-white mt-2"> <a href=<?php print(ROOT_PATH . "accueil"); ?> class="pt-3 pb-3 text-white">Logo</a> </div>
         <div class="col-lg-1 d-flex justify-content-center text-white mt-2"> <a  href=<?php print(ROOT_PATH . "activite"); ?> class="pt-3 pb-3 text-white">Activite</a> </div>
         <div class="col-lg-1  d-flex justify-content-center text-white mt-2"> <a  href=<?php print( ROOT_PATH . "contact"); ?>  class="pt-3 pb-3 text-white">Contact</a> </div>
-        <div class="col-lg-7 "></div>
+        <div class="col-lg-7"></div>
         <div class="col-lg-1 d-flex justify-content-center text-white mt-3"> 
             
             <?php if(!isset($_SESSION["nom"])): ?>
@@ -13,6 +13,9 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href=<?php print(ROOT_PATH . "login"); ?>>Login</a>
+                            <?php if(!isset($_SESSION["inscription"])): ?>
+                                <a class="dropdown-item" href=<?php print(ROOT_PATH . "inscription"); ?>>Inscription</a>
+                            <?php endif; ?>
                         </div>
                     </div>
             <?php endif;  ?>
