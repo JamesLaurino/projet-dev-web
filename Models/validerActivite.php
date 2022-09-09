@@ -23,6 +23,7 @@ class ValidationDatabase
         ));
     }
 
+
     public function validationSouper($idUser, $souper)
     {
         if(strcmp($souper, 'oui') == 0)

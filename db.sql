@@ -223,9 +223,9 @@ begin
 		 WHEN participeSoupe = 0 THEN 'Non'
 	end as 'Participe soupe'
 	from employe
-	inner join departement on departement.id = employe.departementId
-	inner join activite on activite.id = employe.activiteId
-	inner join locomotion on locomotion.id = employe.locomotionId
+	left join departement on departement.id = employe.departementId
+	left join activite on activite.id = employe.activiteId
+	left join locomotion on locomotion.id = employe.locomotionId
 	where employe.isActive = 1;
 end
 
@@ -337,9 +337,9 @@ begin
 		 WHEN participeSoupe = 0 THEN 'Non'
 	end as 'participeSoupe'
 	from employe
-	inner join departement on departement.id = employe.departementId
-	inner join activite on activite.id = employe.activiteId
-	inner join locomotion on locomotion.id = employe.locomotionId
+	left join departement on departement.id = employe.departementId
+	left join activite on activite.id = employe.activiteId
+	left join locomotion on locomotion.id = employe.locomotionId
 	where employe.isActive = 1 AND employe.id = @idUser
 end
 
@@ -351,11 +351,11 @@ end
 
 insert into employe (nom,prenom, mail, codePostal, activiteId, departementId, locomotionId, mdp)
 values
-('James', 'Laurino', 'james@hotmail.com',1499,1,1,1,'123')
+('James', 'Laurino', 'james@hotmail.com',1499,NULL,1,1,'123')
 
 insert into employe (nom,prenom, mail, codePostal, activiteId, departementId, locomotionId, mdp)
 values
-('JaimePas', 'TaFigure', 'jamesPasTaFigure@hotmail.com',1800,1,1,1, '123')
+('JaimePas', 'TaFigure', 'jamesPasTaFigure@hotmail.com',1800,NULL,1,1, '123')
 
 insert into employe (nom,prenom, mail, codePostal, activiteId, departementId, locomotionId, mdp)
 values

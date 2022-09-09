@@ -31,14 +31,121 @@
                 <tbody>
                         <?php foreach($donnees as $donnee ): ?>
                         <tr>
-                            <td><?php print($donnee["nom"]); ?></td>
-                            <td><?php print($donnee["prenom"]); ?></td>
-                            <td><?php print($donnee["mail"]); ?></td>
-                            <td><?php print($donnee["codePostal"]); ?></td>
-                            <td><?php print($donnee["locomotion"]); ?></td>
-                            <td><?php print($donnee["departement"]); ?></td>
-                            <td><?php print($donnee["activite"]); ?></td>
-                            <td><?php print($donnee["participeSoupe"]); ?></td>
+                            
+                            <td>
+                                <?php 
+                                    if(!isset($donnee["nom"]))
+                                    {
+                                        print("NA");
+                                    } 
+                                    else
+                                    {
+                                        print($donnee["nom"]); 
+                                    }
+                                ?>
+                            </td>
+                            
+                            <td>
+                                <?php 
+                                    if(!isset($donnee["prenom"]))
+                                    {
+                                        print("NA");
+                                    } 
+                                    else
+                                    {
+                                        print($donnee["prenom"]); 
+                                    }
+                                ?>
+                            </td>
+                            
+                            <td>
+                                <?php 
+                                    if(!isset($donnee["mail"]))
+                                    {
+                                        print("NA");
+                                    } 
+                                    else
+                                    {
+                                        print($donnee["mail"]); 
+                                    }
+                                ?>
+                            </td>
+
+                            <td>
+                                <?php 
+                                    if(!isset($donnee["codePostal"]))
+                                    {
+                                        print("NA");
+                                    } 
+                                    else
+                                    {
+                                        print($donnee["codePostal"]); 
+                                    }
+                                ?>
+                            </td>
+
+                            <td>
+                                
+                                <?php  
+                                
+                                    if(!isset($donnee["locomotion"]))
+                                    {
+                                        print("NA");
+                                    } 
+                                    else
+                                    {
+                                        print($donnee["locomotion"]); 
+                                    }
+                                
+                                ?>
+
+                            </td>
+
+                            <td>
+                                <?php                                     
+                                    if(!isset($donnee["departement"]))
+                                    {
+                                        print("NA");
+                                    } 
+                                    else
+                                    {
+                                        print($donnee["departement"]); 
+                                    }
+                                ?>
+                            </td>
+
+                            <td>
+                                <?php 
+
+                                    if(!isset($donnee["activite"]))
+                                    {
+                                        print("NA");
+                                    } 
+                                    else
+                                    {
+                                        print($donnee["activite"]); 
+                                    }
+                                    
+                                ?>
+                            
+                            </td>
+
+                            <td>
+
+                                <?php 
+                                    if(!isset($donnee["participeSoupe"]))
+                                    {
+                                        print("NA");
+                                    } 
+                                    else
+                                    {
+                                        print($donnee["participeSoupe"]); 
+                                    }
+                                
+                                ?>
+
+                            </td>
+
                             <td>
                                 <div class="d-flex">
                                     <a href=<?php print(ROOT_PATH . "users/" . $donnee['id'] . "/delete");?> class='btn btn-danger mr-2'>Delete</a>

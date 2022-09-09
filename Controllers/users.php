@@ -10,6 +10,7 @@ if(REQ_TYPE_ID)
         $activites = $admin->getAllActivites();
         $departements = $admin->getAllDepartement();
         $locomotions = $admin->getAllLocomotion();
+        
 
         include("Views/editUser.php");
     }

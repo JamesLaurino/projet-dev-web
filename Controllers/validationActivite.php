@@ -13,7 +13,6 @@ if(isset($_POST["idActivite"]))
     $valider->validationSouper($idUser, $souper);
 
     $_SESSION["validationActivite"] = true;
-    
     include("Views/validationActivite.php");
     
 }

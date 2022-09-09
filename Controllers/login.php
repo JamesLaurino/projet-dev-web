@@ -22,6 +22,7 @@
         }
         else
         {
+            $isParticipe = $user->checkIfActiviteIsAlreadySet($_SESSION["id"]);
             include("Views/accueil.php");
         }
 

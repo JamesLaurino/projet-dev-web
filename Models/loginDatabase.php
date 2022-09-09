@@ -11,6 +11,26 @@ class LoginDatabase
         $this->dbb = new PDO($this->database::$databaseLaptop, '', '');
     }
 
+    
+    public function checkIfActiviteIsAlreadySet($idUser)
+    {
+        $reponse = $this->dbb->prepare("SELECT activiteId FROM employe WHERE id = :idUser");
+        $reponse->execute(array(
+            "idUser" => $idUser
+        ));
+
+        $checkIfSet = $reponse->fetch();
+
+        if($checkIfSet["activiteId"] > 0)
+        {
+            $_SESSION["validationActivite"] = true;
+        }
+        else  
+        {
+            unset($_SESSION["validationActivite"]);
+        }
+    }
+
 
 
     public function checkMdp($nom, $mdpUser)

@@ -50,7 +50,22 @@
                             </td>
 
                             <td>
-                                <p><?php print($donnee["locomotion"]); ?></p>
+                                <p>
+
+                                    <?php 
+
+                                        if(!isset($donnee["locomotion"]))
+                                        {
+                                            print("NA");
+                                        } 
+                                        else
+                                        {
+                                            print($donnee["locomotion"]); 
+                                        }
+
+                                    ?>
+                                
+                                </p>
                                     <select class="form-control" name="locomotion">
                                         <?php foreach($locomotions as $locomotion): ?>
                                             <option value=<?php print($locomotion["nom"]) ?>>
@@ -61,7 +76,20 @@
                             </td>
 
                             <td>
-                            <p><?php print($donnee["departement"]); ?></p>
+                                <p>
+                                    <?php 
+
+                                        if(!isset($donnee["departement"]))
+                                        {
+                                            print("NA");
+                                        } 
+                                        else
+                                        {
+                                            print($donnee["departement"]); 
+                                        }
+
+                                    ?>
+                                </p>
                                 <select class="form-control" name="departement">
                                     <?php foreach($departements as $departement): ?>
                                         <option value=<?php print($departement["nom"]) ?>>
@@ -72,7 +100,22 @@
                             </td>
 
                             <td>
-                                <p><?php print($donnee["activite"]); ?></p>
+
+                                <p>
+                                    <?php 
+
+                                        if(!isset($donnee["activite"]))
+                                        {
+                                            print("NA");
+                                        } 
+                                        else
+                                        {
+                                            print($donnee["activite"]); 
+                                        }
+
+                                    ?>
+                                </p>
+
                                 <select class="form-control" name="activite">
                                     <?php foreach($activites as $activite): ?>
                                         <option value=<?php print($activite["nom"]) ?>>
@@ -83,7 +126,20 @@
                             </td>
 
                             <td>
-                                <p> <?php print($donnee["participeSoupe"]); ?></p>
+                                <p>
+                                    <?php 
+
+                                        if(!isset($donnee["participeSoupe"]))
+                                        {
+                                            print("NA");
+                                        } 
+                                        else
+                                        {
+                                            print($donnee["participeSoupe"]); 
+                                        }
+
+                                    ?>
+                                </p>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="souper" id="oui" value="Oui" checked>
                                     <label class="form-check-label" for="oui">
