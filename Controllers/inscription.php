@@ -12,13 +12,13 @@
     && isset($_POST["departement"]) && isset($_POST["nom"]) && isset($_POST["prenom"])
     && isset($_POST["codePostal"]))
     {
-        $nom = $_POST["nom"];
-        $prenom = $_POST["prenom"];
-        $email = $_POST["email"];
-        $locomotionId = $_POST["locomotion"];
-        $departementId = $_POST["departement"];
-        $codePostal = $_POST["codePostal"];
-        $mdp = $_POST["mdp"];
+        $nom = htmlspecialchars($_POST["nom"]);
+        $prenom = htmlspecialchars($_POST["prenom"]);
+        $email = htmlspecialchars($_POST["email"]);
+        $locomotionId = htmlspecialchars($_POST["locomotion"]);
+        $departementId = htmlspecialchars($_POST["departement"]);
+        $codePostal = htmlspecialchars($_POST["codePostal"]);
+        $mdp = htmlspecialchars($_POST["mdp"]);
 
         $user = new InscriptionDatabase();
         $user->insertNewEmployee($nom, $prenom, $email, $codePostal, $departementId,$locomotionId,$mdp);

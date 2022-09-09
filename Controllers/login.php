@@ -12,8 +12,8 @@
     
     if(isset($_POST["nom"]) && isset($_POST["mdp"]))
     {
-        $nomUser = $_POST["nom"];
-        $mdpUser = $_POST["mdp"];
+        $nomUser = htmlspecialchars($_POST["nom"]);
+        $mdpUser = htmlspecialchars($_POST["mdp"]);
         $user = new LoginDatabase();
         $check = $user->checkMdp($nomUser, $mdpUser);
         if($check == 0)

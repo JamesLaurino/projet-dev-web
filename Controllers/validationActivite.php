@@ -5,8 +5,8 @@ include("Models/validerActivite.php");
 if(isset($_POST["idActivite"]))
 {
     $idUser = $_SESSION["id"];
-    $nomActivite = $_POST["nomActivite"];
-    $souper = $_POST["radioCheck"];
+    $nomActivite = htmlspecialchars($_POST["nomActivite"]);
+    $souper = htmlspecialchars($_POST["radioCheck"]);
 
     $valider = new ValidationDatabase();
     $valider->validationActivite($idUser, $nomActivite);
