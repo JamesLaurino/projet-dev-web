@@ -52,40 +52,41 @@
 
     <div class="container mt-5 d-flex justify-content-center">
 
-        <form action=<?php print(ROOT_PATH . "inscription"); ?> method="post">
+        <form action=<?php print(ROOT_PATH . "inscription"); ?> method="post" name="formulaire">
 
             <div class="form-row">
 
                 <div class="form-group col-md-6">
                     <label for="email">Email</label>
-                    <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                    <input name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required class="form-control" id="email" placeholder="Email">
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="password">Password</label>
-                    <input name="mdp" type="password" class="form-control" id="passwordp" placeholder="password">
+                    <label for="password">Password (min 3) </label>
+                    <input name="mdp" minlength="3" type="password" require class="form-control" id="passwordp" placeholder="password">
                 </div>
+
             </div>
 
             <div class="form-group">
                 <label for="nom">Nom</label>
-                <input name="nom" type="text" class="form-control" id="nom" placeholder="Aude">
+                <input name="nom" type="text" minlength="3" pattern="[a-zA-Z0-9]+"  required class="form-control" id="nom" placeholder="Aude">
             </div>
 
             <div class="form-group">
                 <label for="prenom">Prenom</label>
-                <input name="prenom" type="text" class="form-control" id="prenom" placeholder="Javel">
+                <input name="prenom" type="text" pattern="[a-zA-Z0-9]+" minlength="3" required class="form-control" id="prenom" placeholder="Javel">
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="codePostal">Code postal</label>
-                    <input name="codePostal" type="number" class="form-control" id="codePostal">
+                    <input name="codePostal" required type="number" class="form-control" id="codePostal">
                 </div>
 
                 <div class="form-group col-md-5">
                     <label for="locomotion">Locomotion</label>
-                    <select name="locomotion" id="locomotion" class="form-control">
+                    <select required name="locomotion" id="locomotion" class="form-control">
                         <?php foreach ($locomotions as $locomotion): ?>
                             <option value=<?php print($locomotion["id"]) ?>><?php print($locomotion["nom"]) ?></option>
                         <?php endforeach; ?>
@@ -94,7 +95,7 @@
 
                 <div class="form-group col-md-3">
                     <label for="departement">Département</label>
-                    <select name="departement" id="departement" class="form-control">
+                    <select required name="departement" id="departement" class="form-control">
                         <?php foreach ($departements as $departement): ?>
                             <option value=<?php print($departement["id"]) ?>><?php print($departement["nom"]) ?></option>
                         <?php endforeach; ?>
