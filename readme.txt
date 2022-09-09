@@ -16,6 +16,17 @@
             L'admin peut également supprimer logiquement un utilisateur mais pas physiquement
 
 
+    Pourquoi sql server pas MySQL ?
+    -------------------------------
+
+        MySQL n'est pas une base de donnée fiable pour un projet. Il ne respecte pas les principes ACID.
+        Exemple : dans certaines situation il arrique sur 10 insertions si une n'est pas valide il ne va pas faire un rollback,
+        il va juste valider les 9 première est annuler les autres.
+
+        Sql server permet de faire des CTE, ce qui peut être très pratique dans une procédure stockée.
+    
+    Set up :
+    --------
 
     1. installer sql server : https://www.microsoft.com/en-us/sql-server/sql-server-downloads
 
@@ -37,6 +48,13 @@
             ('nom', 'prenom', 'motDePasse')
 
     5. Pour une connection en mode cf "db.sql" ligne 358
+
+    ATTENTION 
+    ---------
+
+        Si vous utilisé XAMPP, WAMPP ou LAMPP il n'est pas possible de directement connecter le server APACHE 
+        avec ms sql. Il faut pour celui configurer le fichier php.init et avec les bon driver. Un lien utile :
+        https://www.bing.com/videos/search?q=sql+server+avec+xampp&docid=608012561783349375&mid=B23C132FABDA79059B9DB23C132FABDA79059B9D&view=detail&FORM=VIRE
 
 
 
