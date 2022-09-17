@@ -7,7 +7,7 @@ $request = trim($request, '/'); // Permet de supprimer le slash devant et à la 
 $segments = array_filter(explode('/', $request)); // On découpe la requête pour obtenir une liste et on supprime les éléments Null
 if (!count($segments) or $segments[0] == 'index' or $segments[0] == 'index.php')
 {
-    $segments[0] = 'welcome'; // Si rien dans segments alors on injecte la page "welcome" qui sera la page par défaut (page d'accueil)
+    $segments[0] = 'accueil'; // Si rien dans segments alors on injecte la page "welcome" qui sera la page par défaut (page d'accueil)
 }
 
 // Structure URL: http://monprojet.be/{REQ_TYPE}/{REQ_TYPE_ID}/{REQ_ACTION}
