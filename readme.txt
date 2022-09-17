@@ -5,12 +5,12 @@
 
     Important use case :
     -------------------- 
-        User case 1 : 
+        Use case 1 : 
             L'utilisateur non admin peut se connecter avec son mot de passe.
             Il peut choisir l'activite de son choix mais il doit valider s'il participe au soupé.
             Alternativement il ne peut plus changer son choix une fois validé.
         
-        User case 2 :
+        Use case 2 :
             L'admin peut visualiser les profils des non admin.
             Il peut modifier les informations non "personnelles" comme le département, l'acitvité mais pas les autres.
             L'admin peut également supprimer logiquement un utilisateur mais pas physiquement
