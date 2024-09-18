@@ -36,8 +36,7 @@
 
         PS : le string connection se récupère à la connection sur sql server.
 
-    3. Aller dans sql server et écrire la requête suivante : 
-        DATABASE RESTORE FROM DISCK = 'Chemin-a-la-racine-du-repo/SQLDevWebDB.bak';
+    3. Aller dans sql server et exécuter chaque queries qui se trouvent dans db.sql. Il faut les executer dans l'ordre et une par une
 
     4 Pour se connecter sur le site en mode admin il faut avoir les mots de passe admin. 
         Ils ne sont pas en clair en db donc il faut aller voir dans le fichier db.sql (ligne 375) situé à la racine du repo cloné
